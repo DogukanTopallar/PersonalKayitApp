@@ -1,7 +1,7 @@
 ﻿
 namespace Personal_SignIn
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -68,6 +68,7 @@ namespace Personal_SignIn
             this.lblRadioButtonStatus = new System.Windows.Forms.Label();
             this.lblMaritalStatus = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnReports = new System.Windows.Forms.Button();
             this.grbSignIn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbResults.SuspendLayout();
@@ -223,6 +224,7 @@ namespace Personal_SignIn
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReports);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnGrapsh);
             this.groupBox1.Controls.Add(this.btnStatistic);
@@ -239,7 +241,7 @@ namespace Personal_SignIn
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(37, 87);
+            this.btnSave.Location = new System.Drawing.Point(37, 68);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 27);
             this.btnSave.TabIndex = 8;
@@ -249,7 +251,7 @@ namespace Personal_SignIn
             // 
             // btnGrapsh
             // 
-            this.btnGrapsh.Location = new System.Drawing.Point(37, 252);
+            this.btnGrapsh.Location = new System.Drawing.Point(37, 233);
             this.btnGrapsh.Name = "btnGrapsh";
             this.btnGrapsh.Size = new System.Drawing.Size(126, 27);
             this.btnGrapsh.TabIndex = 6;
@@ -259,7 +261,7 @@ namespace Personal_SignIn
             // 
             // btnStatistic
             // 
-            this.btnStatistic.Location = new System.Drawing.Point(37, 219);
+            this.btnStatistic.Location = new System.Drawing.Point(37, 200);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(126, 27);
             this.btnStatistic.TabIndex = 5;
@@ -269,7 +271,7 @@ namespace Personal_SignIn
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(37, 186);
+            this.btnClear.Location = new System.Drawing.Point(37, 167);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(126, 27);
             this.btnClear.TabIndex = 4;
@@ -279,7 +281,7 @@ namespace Personal_SignIn
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(37, 153);
+            this.btnUpdate.Location = new System.Drawing.Point(37, 134);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(126, 27);
             this.btnUpdate.TabIndex = 3;
@@ -289,7 +291,7 @@ namespace Personal_SignIn
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(37, 120);
+            this.btnDelete.Location = new System.Drawing.Point(37, 101);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(126, 27);
             this.btnDelete.TabIndex = 2;
@@ -299,7 +301,7 @@ namespace Personal_SignIn
             // 
             // btnList
             // 
-            this.btnList.Location = new System.Drawing.Point(37, 54);
+            this.btnList.Location = new System.Drawing.Point(37, 35);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(126, 27);
             this.btnList.TabIndex = 0;
@@ -433,7 +435,16 @@ namespace Personal_SignIn
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // btnReports
+            // 
+            this.btnReports.Location = new System.Drawing.Point(37, 266);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(126, 27);
+            this.btnReports.TabIndex = 9;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -446,7 +457,7 @@ namespace Personal_SignIn
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbSignIn);
             this.Font = new System.Drawing.Font("SolidWorks GDT", 12F);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grbSignIn.ResumeLayout(false);
@@ -502,6 +513,7 @@ namespace Personal_SignIn
         private System.Windows.Forms.Label lblRadioButtonStatus;
         private System.Windows.Forms.Label lblMaritalStatus;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnReports;
     }
 }
 

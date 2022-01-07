@@ -12,9 +12,9 @@ using PersonalSignin_DB_.netFramework_;
 
 namespace Personal_SignIn
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -39,7 +39,7 @@ namespace Personal_SignIn
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'personalDataBaseDataSet.Table_Personal' table. You can move, or remove it, as needed.
-            //this.table_PersonalTableAdapter.Fill(this.personalDataBaseDataSet.Table_Personal);
+            this.table_PersonalTableAdapter.Fill(this.personalDataBaseDataSet.Table_Personal);
             tbPerID.Visible = false;
             lblMaritalStatus.Visible = false;
             
