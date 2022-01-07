@@ -47,6 +47,7 @@ namespace Personal_SignIn
             this.tbPerID = new System.Windows.Forms.TextBox();
             this.lblPerID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnGrapsh = new System.Windows.Forms.Button();
             this.btnStatistic = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@ namespace Personal_SignIn
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.table_PersonalTableAdapter = new PersonalSignin_DB_.netFramework_.PersonalDataBaseDataSetTableAdapters.Table_PersonalTableAdapter();
             this.lblRadioButtonStatus = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             this.grbSignIn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbResults.SuspendLayout();
@@ -247,6 +247,16 @@ namespace Personal_SignIn
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Transactions";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(37, 87);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(126, 27);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnGrapsh
             // 
             this.btnGrapsh.Location = new System.Drawing.Point(37, 252);
@@ -255,6 +265,7 @@ namespace Personal_SignIn
             this.btnGrapsh.TabIndex = 6;
             this.btnGrapsh.Text = "Graphs";
             this.btnGrapsh.UseVisualStyleBackColor = true;
+            this.btnGrapsh.Click += new System.EventHandler(this.btnGrapsh_Click);
             // 
             // btnStatistic
             // 
@@ -291,6 +302,7 @@ namespace Personal_SignIn
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnList
             // 
@@ -414,16 +426,6 @@ namespace Personal_SignIn
             this.lblRadioButtonStatus.Name = "lblRadioButtonStatus";
             this.lblRadioButtonStatus.Size = new System.Drawing.Size(0, 19);
             this.lblRadioButtonStatus.TabIndex = 4;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(37, 87);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(126, 27);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

@@ -22,6 +22,19 @@ namespace Personal_SignIn
         SqlConnection connection = new SqlConnection("Data Source=DOGUKAN\\SQLEXPRESS;Initial Catalog=PersonalDataBase;Integrated Security=True");
 
 
+        void clear()
+        {
+            tbPerID.Text = "";
+            tbPerName.Text = "";
+            tbPerSurname.Text = "";
+            cbCity.Text = "";
+            tbJob.Text = "";
+            maskedTextBox1.Text = "";
+            rbMarried.Checked = false;
+            rbSingle.Checked = false;
+            tbPerName.Focus();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'personalDataBaseDataSet.Table_Personal' table. You can move, or remove it, as needed.
@@ -70,6 +83,14 @@ namespace Personal_SignIn
 
         }
 
-        
+        private void btnGrapsh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
     }
 }
