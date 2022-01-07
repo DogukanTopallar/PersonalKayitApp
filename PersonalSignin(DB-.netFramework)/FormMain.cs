@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
+using PersonalSignin_DB_.netFramework_;
 
 namespace Personal_SignIn
 {
@@ -93,6 +94,8 @@ namespace Personal_SignIn
 
         private void btnGrapsh_Click(object sender, EventArgs e)
         {
+            FormGraphs formGrapsh = new FormGraphs();
+            formGrapsh.Show();
 
         }
 
@@ -154,9 +157,13 @@ namespace Personal_SignIn
 
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            
+            FormStatistic formStatistic = new FormStatistic();
+            formStatistic.Show();
+        }
 
-
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }

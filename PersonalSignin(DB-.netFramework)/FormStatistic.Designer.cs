@@ -161,7 +161,7 @@ namespace PersonalSignin_DB_.netFramework_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 297);
+            this.ClientSize = new System.Drawing.Size(359, 297);
             this.Controls.Add(this.lblAverageSalary);
             this.Controls.Add(this.lblTotalSalary);
             this.Controls.Add(this.label10);
@@ -175,7 +175,7 @@ namespace PersonalSignin_DB_.netFramework_
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("SolidWorks GDT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormStatistic";
             this.Text = "FormStatistic";
             this.Load += new System.EventHandler(this.FormStatistic_Load);
