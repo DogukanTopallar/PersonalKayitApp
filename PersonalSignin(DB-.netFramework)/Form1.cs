@@ -40,6 +40,8 @@ namespace Personal_SignIn
             // TODO: This line of code loads data into the 'personalDataBaseDataSet.Table_Personal' table. You can move, or remove it, as needed.
             //this.table_PersonalTableAdapter.Fill(this.personalDataBaseDataSet.Table_Personal);
             tbPerID.Visible = false;
+            lblMaritalStatus.Visible = false;
+            
         }
 
         private void btnList_Click(object sender, EventArgs e)
@@ -52,9 +54,8 @@ namespace Personal_SignIn
         {
 
         }
-        
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             connection.Open();
 
@@ -70,17 +71,24 @@ namespace Personal_SignIn
 
             MessageBox.Show("Personal Added!");
         }
-       
+
+
 
         private void rbMarried_CheckedChanged(object sender, EventArgs e)
         {
-            lblRadioButtonStatus.Text = "True";
+            if (rbMarried.Checked == true)
+            {
+                lblMaritalStatus.Text = "True";
+            }
+
         }
 
         private void rbSingle_CheckedChanged(object sender, EventArgs e)
         {
-            lblRadioButtonStatus.Text = "false";
-
+            if (rbMarried.Checked == true)
+            {
+                lblMaritalStatus.Text = "False";
+            }
         }
 
         private void btnGrapsh_Click(object sender, EventArgs e)
@@ -90,7 +98,65 @@ namespace Personal_SignIn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            clear();
+            connection.Open();
+
+            SqlCommand commandDelete = new SqlCommand("Delete From Table_Personal Where PerID=@k1", connection);
+            commandDelete.Parameters.AddWithValue("@k1", tbPerID.Text);
+            commandDelete.ExecuteNonQuery();
+            connection.Close();
+            MessageBox.Show("Data Deleted!");
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedValue = dataGridView1.SelectedCells[0].RowIndex;
+
+            tbPerID.Text = dataGridView1.Rows[selectedValue].Cells[0].Value.ToString();
+            tbPerName.Text = dataGridView1.Rows[selectedValue].Cells[1].Value.ToString();
+            tbPerSurname.Text = dataGridView1.Rows[selectedValue].Cells[2].Value.ToString();
+            cbCity.Text = dataGridView1.Rows[selectedValue].Cells[3].Value.ToString();
+            maskedTextBox1.Text = dataGridView1.Rows[selectedValue].Cells[4].Value.ToString();
+            lblMaritalStatus.Text = dataGridView1.Rows[selectedValue].Cells[5].Value.ToString();
+            tbJob.Text = dataGridView1.Rows[selectedValue].Cells[6].Value.ToString();
+
+        }
+
+        private void lblMaritalStatus_TextChanged(object sender, EventArgs e)
+        {
+            if (lblMaritalStatus.Text == "True")
+            {
+                rbMarried.Checked = true;
+            }
+
+            if (lblMaritalStatus.Text == "False")
+            {
+                rbSingle.Checked = true;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            SqlCommand commandUpdate = new SqlCommand("Update Table_Personal Set PerName=@a1,PerSurname=@a2,PerCity=@a3, PerSalary=@a4, PerMaritalStatus=@a5,PerJob=@a6 where perID = @a7", connection);
+            commandUpdate.Parameters.AddWithValue("@a1", tbPerName.Text);
+            commandUpdate.Parameters.AddWithValue("@a2", tbPerSurname.Text);
+            commandUpdate.Parameters.AddWithValue("@a3", cbCity.Text);
+            commandUpdate.Parameters.AddWithValue("@a4", maskedTextBox1.Text);
+            commandUpdate.Parameters.AddWithValue("@a5", lblMaritalStatus.Text);
+            commandUpdate.Parameters.AddWithValue("@a6", tbJob.Text);
+            commandUpdate.Parameters.AddWithValue("@a7", tbPerID.Text);
+            commandUpdate.ExecuteNonQuery();
+            connection.Close();
+            MessageBox.Show("Data Updated!");
+
+        }
+
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            
+
+
         }
     }
 }

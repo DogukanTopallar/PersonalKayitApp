@@ -37,7 +37,6 @@ namespace Personal_SignIn
             this.rbMarried = new System.Windows.Forms.RadioButton();
             this.lblJob = new System.Windows.Forms.Label();
             this.cbCity = new System.Windows.Forms.ComboBox();
-            this.lblMaritalStatus = new System.Windows.Forms.Label();
             this.lblCity = new System.Windows.Forms.Label();
             this.lblPerSurname = new System.Windows.Forms.Label();
             this.lblPerName = new System.Windows.Forms.Label();
@@ -65,9 +64,10 @@ namespace Personal_SignIn
             this.perJobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablePersonalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personalDataBaseDataSet = new PersonalSignin_DB_.netFramework_.PersonalDataBaseDataSet();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.table_PersonalTableAdapter = new PersonalSignin_DB_.netFramework_.PersonalDataBaseDataSetTableAdapters.Table_PersonalTableAdapter();
             this.lblRadioButtonStatus = new System.Windows.Forms.Label();
+            this.lblMaritalStatus = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbSignIn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbResults.SuspendLayout();
@@ -85,7 +85,6 @@ namespace Personal_SignIn
             this.grbSignIn.Controls.Add(this.rbMarried);
             this.grbSignIn.Controls.Add(this.lblJob);
             this.grbSignIn.Controls.Add(this.cbCity);
-            this.grbSignIn.Controls.Add(this.lblMaritalStatus);
             this.grbSignIn.Controls.Add(this.lblCity);
             this.grbSignIn.Controls.Add(this.lblPerSurname);
             this.grbSignIn.Controls.Add(this.lblPerName);
@@ -157,15 +156,6 @@ namespace Personal_SignIn
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(159, 27);
             this.cbCity.TabIndex = 4;
-            // 
-            // lblMaritalStatus
-            // 
-            this.lblMaritalStatus.AutoSize = true;
-            this.lblMaritalStatus.Location = new System.Drawing.Point(11, 227);
-            this.lblMaritalStatus.Name = "lblMaritalStatus";
-            this.lblMaritalStatus.Size = new System.Drawing.Size(120, 19);
-            this.lblMaritalStatus.TabIndex = 9;
-            this.lblMaritalStatus.Text = "Marital Status:";
             // 
             // lblCity
             // 
@@ -252,10 +242,10 @@ namespace Personal_SignIn
             this.btnSave.Location = new System.Drawing.Point(37, 87);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 27);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnGrapsh
             // 
@@ -275,6 +265,7 @@ namespace Personal_SignIn
             this.btnStatistic.TabIndex = 5;
             this.btnStatistic.Text = "Statistic";
             this.btnStatistic.UseVisualStyleBackColor = true;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
             // btnClear
             // 
@@ -293,6 +284,7 @@ namespace Personal_SignIn
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -327,6 +319,7 @@ namespace Personal_SignIn
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.perIDDataGridViewTextBoxColumn,
@@ -338,12 +331,14 @@ namespace Personal_SignIn
             this.perJobDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tablePersonalBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(3, 23);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(899, 176);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // perIDDataGridViewTextBoxColumn
             // 
@@ -405,16 +400,6 @@ namespace Personal_SignIn
             this.personalDataBaseDataSet.DataSetName = "PersonalDataBaseDataSet";
             this.personalDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PersonalSignin_DB_.netFramework_.Properties.Resources.EntireHilariousGypsymoth_size_restricted;
-            this.pictureBox1.Location = new System.Drawing.Point(600, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(278, 262);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // table_PersonalTableAdapter
             // 
             this.table_PersonalTableAdapter.ClearBeforeFill = true;
@@ -427,12 +412,33 @@ namespace Personal_SignIn
             this.lblRadioButtonStatus.Size = new System.Drawing.Size(0, 19);
             this.lblRadioButtonStatus.TabIndex = 4;
             // 
+            // lblMaritalStatus
+            // 
+            this.lblMaritalStatus.AutoSize = true;
+            this.lblMaritalStatus.Location = new System.Drawing.Point(583, 313);
+            this.lblMaritalStatus.Name = "lblMaritalStatus";
+            this.lblMaritalStatus.Size = new System.Drawing.Size(56, 19);
+            this.lblMaritalStatus.TabIndex = 5;
+            this.lblMaritalStatus.Text = "label1";
+            this.lblMaritalStatus.TextChanged += new System.EventHandler(this.lblMaritalStatus_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PersonalSignin_DB_.netFramework_.Properties.Resources.EntireHilariousGypsymoth_size_restricted;
+            this.pictureBox1.Location = new System.Drawing.Point(600, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(278, 262);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(929, 551);
+            this.Controls.Add(this.lblMaritalStatus);
             this.Controls.Add(this.lblRadioButtonStatus);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grbResults);
@@ -464,7 +470,6 @@ namespace Personal_SignIn
         private System.Windows.Forms.RadioButton rbMarried;
         private System.Windows.Forms.Label lblJob;
         private System.Windows.Forms.ComboBox cbCity;
-        private System.Windows.Forms.Label lblMaritalStatus;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblPerSurname;
         private System.Windows.Forms.Label lblPerName;
@@ -494,6 +499,7 @@ namespace Personal_SignIn
         private System.Windows.Forms.DataGridViewCheckBoxColumn perMaritalStatusDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn perJobDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblRadioButtonStatus;
+        private System.Windows.Forms.Label lblMaritalStatus;
         private System.Windows.Forms.Button btnSave;
     }
 }
